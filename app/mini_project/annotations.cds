@@ -1,0 +1,1 @@
+using DBBACKEND.StudentService as service from '../../srv/student-service';
