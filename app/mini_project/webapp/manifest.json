@@ -25,6 +25,15 @@
           "odataVersion": "4.0"
         }
       },
+      "mainService_7": {
+        "uri": "/odata/v4/student/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      },
       "mainService_1": {
         "uri": "/odata/v4/users/",
         "type": "OData",
@@ -102,7 +111,7 @@
     }
   },
   "sap.ui5": {
-    "flexEnabled": true,
+    "flexEnabled": false,
     "dependencies": {
       "minUI5Version": "1.120.1",
       "libs": {
@@ -136,6 +145,26 @@
           "autoExpandSelect": true,
           "earlyRequests": true
         }
+      },
+      "Students": {
+        "dataSource": "mainService_7",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "Users": {
+        "dataSource": "mainService_1", 
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
       }
     },
     "resources": {
@@ -157,20 +186,48 @@
       },
       "routes": [
         {
-          "name": "RouteStudent",
+          "name": "RouteLogin",
           "pattern": ":?query:",
           "target": [
-            "TargetStudent"
+            "TargetLogin"
+          ]
+        },
+        {
+					"name": "RouteStudent",
+					"pattern": "Student",
+          "target": [
+            "RouteStudent"
+          ]
+				},
+        {
+          "name": "RouteUsers",
+          "pattern": "Users",
+          "target": [
+            "RouteUsers"
           ]
         }
       ],
       "targets": {
-        "TargetStudent": {
+        "TargetLogin": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Login",
+          "viewName": "Login"
+        },
+        "RouteStudent": {
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
           "viewId": "Student",
           "viewName": "Student"
+        },        
+        "RouteUsers": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Users",
+          "viewName": "Users"
         }
       }
     },

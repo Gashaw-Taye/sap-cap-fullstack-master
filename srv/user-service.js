@@ -29,6 +29,50 @@ module.exports = async function () {
         Last_login: new Date("2023-01-12T14:45:00Z"),
         Account_status: 1,
       },
+      {
+        Full_name: "gashu man",
+        Email: "gtforever@example.com",
+        Office: "Branch Office",
+        Role: "admin",
+        Password: "encrypted_password_2", // Placeholder for encrypted password
+        Created_at: new Date("2023-01-02T09:15:00Z"),
+        Updated_at: new Date("2023-01-02T09:15:00Z"),
+        Last_login: new Date("2023-01-12T14:45:00Z"),
+        Account_status: 1,
+      },
+      {
+        Full_name: "abebe",
+        Email: "abie man@example.com",
+        Office: "Branch Office",
+        Role: "User",
+        Password: "encrypted_password_2", // Placeholder for encrypted password
+        Created_at: new Date("2023-01-02T09:15:00Z"),
+        Updated_at: new Date("2023-01-02T09:15:00Z"),
+        Last_login: new Date("2023-01-12T14:45:00Z"),
+        Account_status: 1,
+      },
+      {
+        Full_name: "muluken",
+        Email: "mulukene@example.com",
+        Office: "Branch Office",
+        Role: "admin",
+        Password: "encrypted_password_2", // Placeholder for encrypted password
+        Created_at: new Date("2023-01-02T09:15:00Z"),
+        Updated_at: new Date("2023-01-02T09:15:00Z"),
+        Last_login: new Date("2023-01-12T14:45:00Z"),
+        Account_status: 1,
+      },
+      {
+        Full_name: "diresilign",
+        Email: "addis@example.com",
+        Office: "Branch Office",
+        Role: "User",
+        Password: "encrypted_password_2", // Placeholder for encrypted password
+        Created_at: new Date("2023-01-02T09:15:00Z"),
+        Updated_at: new Date("2023-01-02T09:15:00Z"),
+        Last_login: new Date("2023-01-12T14:45:00Z"),
+        Account_status: 1,
+      },
       // Add more user entries as needed
     ];
 

@@ -12,10 +12,26 @@
   },
   "devDependencies": {
     "@cap-js/sqlite": "^1",
-    "@sap/ux-specification": "^1.120.0"
+    "@sap/ux-specification": "^1.120.0",
+    "sqlite3": "^5.1.6"
   },
   "scripts": {
     "start": "cds-serve",
     "watch-mini_project": "cds watch --open mini_project/webapp/index.html?sap-ui-xx-viewCache=false"
+  },
+  "cds":{
+    "requires": {
+      "db": {
+        "[development]": {
+          "kind": "sqlite",
+          "impl": "@cap-js/sqlite",
+          "credentials": {
+            "url": "db/db.sqlite"
+            },
+            "schema_evolution": "auto"
+          },
+        "[production]": { "kind": "hana", "impl": "@sap/cds-hana", "deploy-format": "hdbtable" }
+      }
+    }
   }
 }

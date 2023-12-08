@@ -1,0 +1,124 @@
+<mvc:View
+  controllerName="miniproject.controller.Student"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:l="sap.ui.layout"
+  xmlns:m="sap.ui.webc.main"
+  xmlns:fiori="sap.ui.webc.fiori"
+  xmlns="sap.m"
+  xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+  height="100%">
+  
+	<SplitApp
+		id="SplitAppDemo"
+		initialDetail="detail"
+		initialMaster="master">
+        
+		<detailPages>
+        
+			<Page
+				id="detail"
+				title="Detail 1"
+				backgroundDesign= "Solid">
+				<Label text="Detail page 1" />
+				<Button text="Go to Detail page2" press=".onPressNavToDetail" />
+                 <headerContent>
+        <!-- Logout Button -->
+        <Button icon="sap-icon://visits" id="btn" text="Logout" type="Accept" press="logout" class="sapMBarHeaderContentRight" />
+      </headerContent>
+			</Page>
+			<Page
+				id="detailDetail"
+				title="Detail Detail"
+				backgroundDesign= "Solid"
+				showNavButton="true"
+				navButtonPress=".onPressDetailBack">
+				<VBox class="sapUiSmallMargin">
+					 <l:HorizontalLayout class="sapUiContentPadding">
+          <m:Card width="400px">
+            <m:header>
+              <m:CardHeader titleText="User list" subtitleText="Direct report">
+                <m:avatar>
+                  <m:Icon name="group" />
+                </m:avatar>
+                <m:action>
+                  <m:Button design="Emphasized" text="View All" />
+                </m:action>
+              </m:CardHeader>
+            </m:header>
+            <m:List items="{Users>/Users}">
+              <m:StandardListItem
+                description="{Users>Full_name}"
+                image="{value:'man_avatar_3.png', formatter: '.resolveUrl'}"
+                text="{Users>Full_name}" />
+              <m:StandardListItem
+                description="{Users>Role}"
+                image="{value:'woman_avatar_5.png', formatter: '.resolveUrl'}"
+                text="{Users>Email}" />
+              <m:StandardListItem
+                description="{Users>Role}"
+                image="{value:'woman_avatar_4.png', formatter: '.resolveUrl'}"
+                text="{Users>Email}" />
+            </m:List>
+          </m:Card>
+        </l:HorizontalLayout>
+				</VBox>
+			</Page>
+			<Page
+				id="detail2"
+				title="Detail 3 Page"
+				backgroundDesign= "Solid"
+				showNavButton="true"
+				navButtonPress=".onPressDetailBack">
+				   <Table id="studentsTable" items="{Students>/Students}" width="50%">
+          <columns>
+            <Column>
+              <Text text="Full Name" />
+            </Column>
+            <Column>
+              <Text text="Gender" />
+            </Column>
+            <Column>
+              <Text text="Office" />
+            </Column>
+            <!-- Add more columns based on your entity properties -->
+          </columns>
+          <items>
+            <ColumnListItem>
+              <cells>
+                <Text text="{Students>Full_name}" />
+                <Text text="{Students>Gender}" />
+                <Text text="{Students>Office}" />
+                <!-- Add more cells based on your entity properties -->
+              </cells>
+            </ColumnListItem>
+          </items>
+        </Table>
+			</Page>
+		</detailPages>
+		<masterPages>
+			<Page
+				id="master"
+				title="Master 1"
+				backgroundDesign= "List">
+				<List>
+					<StandardListItem title="To Master2" type="Navigation" press=".onPressGoToMaster" />
+				</List>
+			</Page>
+			<Page
+				id="master2"
+				title="Master 2"
+				backgroundDesign="List"
+				showNavButton="true"
+				navButtonPress=".onPressMasterBack">
+				<List itemPress=".onListItemPress">
+					<items>
+						<StandardListItem title="To Detail 1" type="Active" custom:to="detail" />
+						<StandardListItem title="To Detail 2" type="Active" custom:to="detailDetail" />
+						<StandardListItem title="To Detail 3" type="Active" custom:to="detail2" />
+					</items>
+				</List>
+			</Page>
+		</masterPages>
+	</SplitApp>
+</mvc:View>
+
